@@ -1,0 +1,1 @@
+class ExceptionAlreadyClientConnected implements Exception {}
