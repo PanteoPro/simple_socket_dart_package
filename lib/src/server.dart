@@ -77,12 +77,11 @@ class SimpleSocketServer {
     onDoneClient?.call(client);
   }
 
-  void sendMessage(Socket client, Map<String, dynamic> message) {
+  void sendSimpleMessage(Socket client, String message) {
     _sendMessageWrapper(client, message);
   }
 
-  void sendMessages(Map<String, dynamic> message,
-      {List<Socket>? excludeClients}) {
+  void sendSimpleMessages(String message, {List<Socket>? excludeClients}) {
     for (final client in _clients) {
       if (!(excludeClients?.contains(client) ?? false)) {
         _sendMessageWrapper(client, message);
@@ -90,7 +89,20 @@ class SimpleSocketServer {
     }
   }
 
-  void _sendMessageWrapper(Socket client, Map<String, dynamic> message) {
-    client.write('${jsonEncode(message)}${SimpleSocketConst.messageSeparator}');
+  void sendMessage(Socket client, Map<String, dynamic> message) {
+    _sendMessageWrapper(client, jsonEncode(message));
+  }
+
+  void sendMessages(Map<String, dynamic> message,
+      {List<Socket>? excludeClients}) {
+    for (final client in _clients) {
+      if (!(excludeClients?.contains(client) ?? false)) {
+        _sendMessageWrapper(client, jsonEncode(message));
+      }
+    }
+  }
+
+  void _sendMessageWrapper(Socket client, String message) {
+    client.write('$message${SimpleSocketConst.messageSeparator}');
   }
 }

@@ -66,4 +66,8 @@ class SimpleSocketClient {
     _socket
         ?.write('${jsonEncode(message)}${SimpleSocketConst.messageSeparator}');
   }
+
+  void sendSimpleMessage(String message) {
+    _socket?.write('$message${SimpleSocketConst.messageSeparator}');
+  }
 }

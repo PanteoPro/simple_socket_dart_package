@@ -9,4 +9,5 @@ environment:
 # dependencies:
 #   path: ^1.8.0
 
-# dev_dependencies:
+dev_dependencies:
+  test: ^1.22.1
