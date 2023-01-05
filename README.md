@@ -53,10 +53,18 @@ await server.start(ip: '127.0.0.1', port: 7777);
 // Send to all client the message
 server.sendMessages({"data": "Hello world clients"});
 
+// Send to all client just string message
+server.sendSimpleMessages('Simple message');
+
 // Get the first connection (client)
 final client = server.socketClients.first;
 // Send to specific client message
 server.sendMessage(client, {"data": "Hello my dear friend"});
+
+// Send to specific client just string message
+server.sendSimpleMessage(client, 'Hello every one');
+
+
 
 // Close the server
 server.close();
@@ -84,6 +92,9 @@ await client.connect(ip: '127.0.0.1', port: 7777);
 
 // Send message to the server
 client.sendMessage({"data": "Hello server"});
+
+// Send just string message to the server
+client.sendSimpleMessage('Simple message');
 
 // Close the client connection
 client.close();

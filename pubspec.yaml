@@ -1,6 +1,6 @@
 name: simple_socket
 description: A new Flutter package with implemetation socket communication
-version: 0.2.1
+version: 0.2.2
 homepage: https://github.com/PanteoPro/simple_socket_dart
 
 environment:
