@@ -4,7 +4,7 @@ version: 0.2.2
 homepage: https://github.com/PanteoPro/simple_socket_dart
 
 environment:
-  sdk: '>=2.18.4 <3.0.0'
+  sdk: '>=2.15.0 <3.0.0'
 
 # dependencies:
 #   path: ^1.8.0
